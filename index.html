@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>茲茲文教-高一班群選擇全攻略實戰地圖</title>
+    <style>
+        :root {
+            --primary: #4A90E2;
+            --secondary: #F39C12;
+            --bg-color: #F8F9FA;
+            --text-color: #333;
+            --card-bg: #FFFFFF;
+        }
+        * {
+            box-sizing: border-box;
+            /* 👑 終極列印魔法：強制瀏覽器印出所有背景顏色 */
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, 'Microsoft JhengHei';
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+        }
+        
+        /* 標題與 Logo 區塊 */
+        .header-container {
+            text-align: center;
+            border-bottom: 3px solid var(--primary);
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .header-container h1 {
+            color: var(--primary);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-size: 2em;
+        }
+        .logo {
+            max-height: 60px;
+            width: auto;
+        }
+
+        h2 {
+            color: #2C3E50;
+            background: #E8F0FE;
+            padding: 10px;
+            border-left: 5px solid var(--primary);
+            border-radius: 4px;
+            margin-top: 0;
+        }
+        .card {
+            background: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        
+        /* 迷思區塊 */
+        .myth-item {
+            margin: 12px 0;
+            padding: 12px;
+            background: #FFF3CD;
+            border-left: 4px solid #FFC107;
+            border-radius: 4px;
+        }
+        .pain-point {
+            color: #5D4037;
+            font-size: 0.95em;
+            margin: 5px 0;
+            padding-left: 25px;
+        }
+        .myth-item strong { 
+            color: #D32F2F; 
+            display: block;
+            margin-top: 5px;
+        }
+        
+        /* 檢測區塊 */
+        .input-line {
+            border: none;
+            border-bottom: 2px solid var(--text-color);
+            background: transparent;
+            font-size: 16px;
+            width: 150px;
+            margin: 0 10px;
+            text-align: center;
+        }
+        .scenario-box {
+            background: #EFEBE9;
+            border: 1px dashed #8D6E63;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+        .gold-quote {
+            text-align: center;
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #D35400;
+            background: #FDEBD0;
+            padding: 12px;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        /* 決策樹狀圖 */
+        .flowchart {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .flow-step {
+            background: #E1F5FE;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #81D4FA;
+        }
+        
+        /* 四大班群矩陣 */
+        .grid-2x2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .group-card {
+            background: #F4F6F6;
+            padding: 12px;
+            border-radius: 8px;
+            border-top: 4px solid var(--primary);
+        }
+        .group-card h4 { margin: 0 0 8px 0; }
+        .group-card p { margin: 5px 0; font-size: 0.95em; }
+        .feature-text { color: #00796B; font-weight: bold; }
+        
+        /* 對話框 - 加入框線讓列印更明顯 */
+        .chat-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+        .chat-bubble {
+            max-width: 85%;
+            padding: 10px 15px;
+            border-radius: 15px;
+            font-size: 0.95em;
+            border: 1px solid rgba(0,0,0,0.1); /* 隱形框線確保立體感 */
+        }
+        .chat-ng {
+            background: #FFEBEE;
+            align-self: flex-start;
+            border-bottom-left-radius: 0;
+            border-color: #FFCDD2;
+        }
+        .chat-pro {
+            background: #E8F5E9;
+            align-self: flex-end;
+            border-bottom-right-radius: 0;
+            text-align: right;
+            border-color: #C8E6C9;
+        }
+        .chat-teacher {
+            background: #FFF9C4;
+            align-self: flex-start;
+            border-bottom-left-radius: 0;
+            border-color: #FFF59D;
+        }
+
+        /* 🖨️ 列印專用設定 🖨️ */
+        @media print {
+            @page {
+                size: A4; 
+                margin: 10mm; 
+            }
+            body { 
+                background: white; 
+                font-size: 12pt; 
+                padding: 0; 
+                color: #000;
+            }
+            .container { max-width: 100%; margin: 0; }
+            .card { 
+                box-shadow: none; 
+                border: none; 
+                margin: 0; 
+                padding: 0; 
+            }
+            
+            /* 強制 A 面結束後換頁 */
+            .page-a {
+                page-break-after: always;
+                break-after: page;
+            }
+
+            /* 微調列印間距 */
+            .header-container { padding-bottom: 10px; margin-bottom: 10px; }
+            .header-container h1 { font-size: 1.6em; }
+            h2 { font-size: 1.1em; padding: 5px 10px; margin-bottom: 10px; }
+            h3 { font-size: 1.05em; margin: 10px 0 5px 0; }
+            .myth-item { margin: 8px 0; padding: 10px; }
+            .grid-2x2 { gap: 10px; }
+            .group-card { padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="card page-a">
+        <div class="header-container">
+            <h1>
+                <img src="logo.png" alt="茲茲文教 Logo" class="logo" onerror="this.style.display='none'"> 
+                茲茲文教 - 高一班群選擇全攻略實戰地圖
+            </h1>
+        </div>
+
+        <h2>A面：選組真心話與決策圖</h2>
+        
+        <h3>1. 破冰測驗：選組迷思 ⭕️❌</h3>
+        <div class="myth-item">
+            <input type="checkbox"> <strong>迷思一：數學不好，所以只能去選社會組？</strong>
+            <div class="pain-point">
+                💭 你的痛點：很多人覺得成績不好才去選社會組，甚至被貼上「不唸書的人」的標籤，讓你覺得選文組很自卑...
+            </div>
+            <strong>💥 破解：錯！有許多強者是對人社法政有濃厚興趣才選的。社會組是培養法商軟實力，絕不是逃避理科的收容所！</strong>
+        </div>
+        <div class="myth-item">
+            <input type="checkbox"> <strong>迷思二：自然組薪水高，文組以後會被 AI 取代？</strong>
+            <div class="pain-point">
+                💭 你的痛點：總聽別人說「自然組工作機會多」、「文史哲學的東西都沒用」，讓你對未來超級焦慮...
+            </div>
+            <strong>💥 破解：錯！AI 無法取代人類的「情感同理」與「溝通思考」。決定你能不能找到好工作的是你的「專業能力」，而不是組別！</strong>
+        </div>
+
+        <h3>2. 自我檢測診斷室</h3>
+        <p>🏆 <strong>我的成就感來源（讀起來最順的兩科）：</strong> <input type="text" class="input-line"> 、 <input type="text" class="input-line"></p>
+        <p>💀 <strong>我的大魔王（看到就想撕書的一科）：</strong> <input type="text" class="input-line"></p>
+        
+        <div class="scenario-box">
+            <h4>🤔 真實狀況題：成績偏向社會組，但我真的很想讀自然組可以嗎？</h4>
+            <p>如果在學習時遇到「成績與興趣衝突」，只要你的<strong>興趣很明確</strong>，且你願意為了考上自己相關科系去<strong>加強弱科</strong>，那你可以毫不猶豫地選擇你興趣偏好的組別！</p>
+            <div class="gold-quote">
+                💡 診斷金句：弱科可以用後天努力進行補強，但興趣不會因為你「努力喜歡」而變成你的興趣。
+            </div>
+        </div>
+
+        <h3>3. 選組決策路線圖</h3>
+        <div class="flowchart">
+            <div class="flow-step"><strong>START ➡️ 你有明確的夢想職業或喜歡的科系嗎？</strong></div>
+            <div class="flow-step" style="margin-left: 20px;">✅ <strong>【有】：</strong>請上大學網查「必修課」與「採計科目」，直接對應相關班群。</div>
+            <div class="flow-step" style="margin-left: 20px;">❌ <strong>【沒有】：你的各科成績表現如何？</strong>
+                <ul>
+                    <li><strong>文科較強：</strong>往第一、二班群探索。</li>
+                    <li><strong>理科較強：</strong>往第三、四班群探索。</li>
+                    <li><strong>各科平均：</strong>這是優勢！請用「刪去法」刪掉絕對不碰的，用「興趣量表」找方向。</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="card page-b">
+        <h2>B面：班群情報與生存攻略</h2>
+        
+        <h3>1. 四大班群戰力分析表</h3>
+        <div class="grid-2x2">
+            <div class="group-card">
+                <h4>🏛️ 第一班群 (人文法政)</h4>
+                <p><strong>核心：</strong>國英史地公 + 數B</p>
+                <p><strong>戰場：</strong>文史哲、法政、傳播</p>
+                <p class="feature-text">💡 特色：必修科目數較少、有較多時間進行課外探索。</p>
+            </div>
+            <div class="group-card">
+                <h4>💼 第二班群 (財經商管)</h4>
+                <p><strong>核心：</strong>社會科 + 數A/B</p>
+                <p><strong>戰場：</strong>財經、會計、企管、資管</p>
+                <p class="feature-text">💡 特色：相對人文法政班群，數學難度較高。</p>
+            </div>
+            <div class="group-card">
+                <h4>⚙️ 第三班群 (資訊理工)</h4>
+                <p><strong>核心：</strong>數A + 物理 + 化學</p>
+                <p><strong>戰場：</strong>工程、資訊、建築設計</p>
+                <p class="feature-text">💡 特色：唯一有程式設計課程、一般會準備APCS檢定。</p>
+            </div>
+            <div class="group-card">
+                <h4>⚕️ 第四班群 (醫藥衛生)</h4>
+                <p><strong>核心：</strong>數A + 物化 + <strong>生物</strong></p>
+                <p><strong>戰場：</strong>醫學、護理、生科、農林</p>
+                <p class="feature-text">💡 特色：唯一學習選修生物的班群、課程範圍廣，跨考其他班群較容易。</p>
+            </div>
+        </div>
+
+        <h3>2. 遇到反對聲音？說服大人實戰指南</h3>
+        
+        <strong>【對決家長篇】</strong>
+        <div class="chat-container">
+            <div class="chat-bubble chat-ng">
+                ❌ <strong>NG 屁孩模式：</strong>「我就是不想念物理啦！煩死！」 <em>(結果：引發家庭革命)</em>
+            </div>
+            <div class="chat-bubble chat-pro">
+                ✅ <strong>PRO 面試模式：</strong>「爸媽，這是我做的興趣測驗跟目標科系採計科目，我評估後覺得ＯＯ班群最適合我...」 <em>(結果：家長放手)</em>
+            </div>
+        </div>
+
+        <strong>【對決老師篇】</strong>
+        <div class="chat-container">
+            <div class="chat-bubble chat-teacher">
+                👨‍🏫 <strong>老師的警告 (勸退心態)：</strong>「你確定要選這個？那都是沒有在唸書的人選的，讀書風氣不好喔！」
+            </div>
+            <div class="chat-bubble chat-pro">
+                ✅ <strong>溝通心法 (堅定目標)：</strong>「老師，我對想達成目標的渴望，已經超越外在讀書風氣的影響，我會對自己的選擇負責！」
+            </div>
+        </div>
+
+        <h3>3. 給高一的通關密語</h3>
+        <ul>
+            <li>志向不明確的同學，文科轉理科會很痛苦，選社會組前請三思。</li>
+            <li>如果選錯了，請設好「一學期停損點」，評估補修學分成本，勇敢轉組！</li>
+            <li><strong>你的未來你自己選，並為自己的選擇負責。</strong></li>
+        </ul>
+    </div>
+    </div>
+
+</body>
+</html>
